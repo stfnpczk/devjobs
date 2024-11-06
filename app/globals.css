@@ -3,19 +3,92 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bg-color: #f4f6f8;
+  --text-color: #19202d;
+  --card-color: #ffffff;
+
+  --max-width-layout-mobile: 32.8125rem;
+  --max-width-layout-tablet: 89.714vw;
+  /*prettier-ignore*/
+  --max-width-layout-desktop: clamp(72.375rem,80.417vw,84.375rem);
+  --max-width-layout-job-desktop: clamp(45.625rem, 50.694vw, 62.5rem);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+.dark {
+  --bg-color: #121721;
+  --text-color: #ffffff;
+  --card-color: #19202d;
+}
+
+@layer base {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-bold;
+    @apply text-veryDarkBlue;
+    transition: color 0.7s ease;
+  }
+
+  p {
+    @apply text-darkGray;
+    line-height: 1.625rem;
+  }
+
+  input:focus {
+    @apply outline-none;
+  }
+
+  .text-veryDarkBlue,
+  .text-darkGray,
+  .bg-lightGray,
+  .bg-card,
+  .bg-background,
+  .bg-text {
+    transition: all 1.25s ease;
   }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+/* filter modal */
+dialog[open] {
+  animation: show 500ms cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+dialog.closing {
+  animation: hide 450ms cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+dialog::backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  /* backdrop-filter: blur(0.1875rem); */
+  animation: none;
+}
+
+@keyframes show {
+  from {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}
+
+@keyframes hide {
+  from {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
 }
