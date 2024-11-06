@@ -32,8 +32,8 @@ Users should be able to:
 
 ### Links
 
-- [Frontend Mentor - solution URL](https://www.frontendmentor.io/profile/stfnpczk)
-- [Live Demo](https://www.frontendmentor.io/profile/stfnpczk)
+- [Frontend Mentor - solution URL](https://www.frontendmentor.io/solutions/devjobs-web-app-built-w-react-tailwind-nextjs-afriewlAZr)
+- [Live Demo](https://devjobs-two-ecru.vercel.app/)
 
 ## My process
 
